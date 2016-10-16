@@ -1,0 +1,9 @@
+KEEP_DAT message Hello, world!
+PREACH_IT message
+KEEP_DOIN_DAT 10
+    PREACH_IT hi
+    PREACH_IT hi2
+K_STOP
+IF_DAT_BOOTY_KEEP_POPPIN true
+    PREACH_IT yep it is
+K_STOP
