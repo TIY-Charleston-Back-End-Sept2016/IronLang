@@ -28,10 +28,16 @@ public class Main {
         return commands;
     }
 
-    static void processCommand(Scanner scanner, ArrayList<HashMap<String, String>> variables, String line) {
+    static void processCommand(Scanner scanner, ArrayList<HashMap<String, String>> variables, String line) throws Exception {
         line = line.trim();
-        String cmd = line.substring(0, line.indexOf(" "));
-        String params = line.substring(line.indexOf(" ")+1);
+        if (line.isEmpty()) {
+            return;
+        }
+        String cmd = line, params = "";
+        if (line.indexOf(" ") > 0) {
+            cmd = line.substring(0, line.indexOf(" "));
+            params = line.substring(line.indexOf(" ")+1);
+        }
         HashMap<String, String> vars = combineMaps(variables);
         if (vars.containsKey(params)) {
             params = vars.get(params);
@@ -67,10 +73,12 @@ public class Main {
                     variables.remove(variables.size()-1);
                 }
                 break;
+            default:
+                throw new Exception("Command not found: " + cmd);
         }
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws Exception {
         File f = new File("test.iron");
         Scanner scanner = new Scanner(f);
         ArrayList<HashMap<String, String>> variables = new ArrayList<>();
