@@ -6,4 +6,6 @@ KEEP_DOIN_DAT 10
 K_STOP
 IF_DAT_BOOTY_KEEP_POPPIN true
     PREACH_IT yep it is
+    KEEP_DAT stuff 2
+    PREACH_IT stuff
 K_STOP
